@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+.current-weather {
+    .inner-weather {
+        // outline: 1px solid red;
+        width: fit-content;
+        display: flex;
+        gap: 20px;
+        .info-1 {
+            background-color: lightblue;
+            padding: 20px;
+            width: 180px;
+            .temperature {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 10px;
+                .current {
+                    display: block;
+                    font-size: 52px;
+                    line-height: 1;
+                }
+                .sub-temps {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 6px 0;
+                    .max,
+                    .min {
+                        font-size: 14px;
+                        line-height: 1;
+                    }
+    
+                }
+            }
+            .sunrise, .sunset {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .left {
+                    .material-symbols-outlined {
+                        font-size: 50px;
+                    }
+                    p {
+                        margin: 0;
+                        font-size: 16px;
+                        color: #5a5a5a;
+                        text-align: center;
+                    }
+                }
+                .time {
+                    font-size: 20px;
+                }
+            }
+        }
+        .big-section {
+            width: 220px;
+            background-color: lightyellow;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+            .condition {
+                text-align: center;
+                margin: 0;
+            }
+        }
+        .info-2 {
+            background-color: lightcyan;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 275px;
+            gap: 20px;
+            .item {
+                $g: 20px; //gap between cards
+                $n: 2; //number of cards per row
+                flex-basis: calc(100%/$n + $g/$n - $g);
+                aspect-ratio: 1;
+                text-align: center;
+                padding: 10px;
+                border: 1px solid black;
+                border-radius: 12px;
+                .material-symbols-outlined {
+                    font-size: 50px;
+                }
+                .desc {
+                    margin: 5px 0 0 0;
+                    font-size: 16px;
+                    color: #5a5a5a;
+                }
+                p {
+                    font-size: 18px;
+                    margin: 0;
+                }
+            }
+        }
+
+
+        .pressure {
+        }
+        .winds {
+            .indicator-outer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid black;
+                border-radius: 200px;
+                height: 50px;
+                aspect-ratio: 1;
+                --wind-dir: 0;
+                position: relative;
+                margin: 10px auto 10px auto;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: red;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 20px;
+                }
+                &:after {
+                    // direction tiks
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 150%;
+                    width: 150%;
+                    
+
+                }
+                .indicator {
+                    height: 26px;
+                    aspect-ratio: 1;
+                    clip-path: polygon(50% 0,
+                        80% 100%,
+                        20% 100%);
+                    background-color: black;
+                    transform: rotateZ(var(--wind-dir));
+                }
+            }
+            .wind-speed {
+            
+            }
+        }
+    }
+}
+
+.weather-forecast {
+    margin: 20px 0 0 0;
+    .days {
+        display: flex;
+        gap: 20px;
+        >div {
+            background-color: tomato;
+            border-radius: 12px;
+            padding: 10px;
+            .dayname {
+                display: block;
+                text-align: center;
+            }
+            .temps {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+        }
+    }
+}
