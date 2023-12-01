@@ -33,7 +33,7 @@ function getCurrentWeather(lat, lon) {
     fetch(reqUrl)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            // console.log(response);
             showCurrentWeather(response);
             showForecast(response);
         })
@@ -84,7 +84,7 @@ function showCurrentWeather(data) {
 function showForecast(data) {
     const days = data.daily.slice(1,6);
     days.forEach(function(day, index) {
-        console.log(day);
+        // console.log(day);
 
         const newDay = document.createElement("div");
         newDay.classList.add(`day-${index}`);
@@ -101,6 +101,9 @@ function showForecast(data) {
         const date = new Date(dt * 1000);
         let dayname;
         switch (date.getDay()) {
+            case 0 : 
+                dayname = 'Sunday';
+                break;
             case 1 :
                 dayname = 'Monday';
                 break;
@@ -117,7 +120,7 @@ function showForecast(data) {
                 dayname = 'Friday';
                 break;
             case 6 :
-                dayname = 'Saturay';
+                dayname = 'Saturday';
                 break;
         }
 
