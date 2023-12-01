@@ -1,21 +1,42 @@
+$black: #000;
+$black1: #5a5a5a;
+$brightBlue: #8fe0ff;
+$medBlue: #75b4e3;
+$darkBlue: #31255a;
+$white: #fff;
+
 * {
     box-sizing: border-box;
 }
 .current-weather {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+    >h2 {
+        text-align: center;
+    }
     .inner-weather {
         // outline: 1px solid red;
-        width: fit-content;
         display: flex;
+        justify-content: center;
         gap: 20px;
+        background-image: linear-gradient($brightBlue, $medBlue);
+        padding: 30px;
+        border-radius: 12px;
         .info-1 {
-            background-color: lightblue;
-            padding: 20px;
-            width: 180px;
+            // background-color: $white;
+            width: 200px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             .temperature {
                 display: flex;
-                justify-content: center;
                 gap: 10px;
-                margin-bottom: 10px;
+                background-color: $white;
+                border-radius: 8px;
+                padding: 14px 20px;
                 .current {
                     display: block;
                     font-size: 52px;
@@ -34,29 +55,40 @@
     
                 }
             }
-            .sunrise, .sunset {
+            .suntimes {        
+                background-color: $white;
+                padding: 14px 20px;
+                border-radius: 8px;
+                flex: 1 1 auto;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+                justify-content: center;
                 gap: 20px;
-                .left {
-                    .material-symbols-outlined {
-                        font-size: 50px;
+                .sunrise, .sunset {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    .left {
+                        .material-symbols-outlined {
+                            font-size: 50px;
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 16px;
+                            color: $black1;
+                            text-align: center;
+                        }
                     }
-                    p {
-                        margin: 0;
-                        font-size: 16px;
-                        color: #5a5a5a;
-                        text-align: center;
+                    .time {
+                        font-size: 20px;
                     }
-                }
-                .time {
-                    font-size: 20px;
                 }
             }
         }
         .big-section {
             width: 220px;
-            background-color: lightyellow;
+            background-color: $white;
+            border-radius: 8px;
             justify-content: center;
             display: flex;
             align-items: center;
@@ -68,11 +100,11 @@
             }
         }
         .info-2 {
-            background-color: lightcyan;
+            // background-color: lightcyan;
             display: flex;
             flex-wrap: wrap;
             align-items: stretch;
-            width: 275px;
+            width: 300px;
             gap: 20px;
             .item {
                 $g: 20px; //gap between cards
@@ -81,15 +113,18 @@
                 aspect-ratio: 1;
                 text-align: center;
                 padding: 10px;
-                border: 1px solid black;
-                border-radius: 12px;
+                border-radius: 8px;
+                background-color: $white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 .material-symbols-outlined {
                     font-size: 50px;
                 }
                 .desc {
                     margin: 5px 0 0 0;
                     font-size: 16px;
-                    color: #5a5a5a;
+                    color: $black1;
                 }
                 p {
                     font-size: 18px;
@@ -154,13 +189,24 @@
 }
 
 .weather-forecast {
-    margin: 20px 0 0 0;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $medBlue;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 12px;
+
+    .inner {
+    }
     .days {
         display: flex;
+        justify-content: center;
         gap: 20px;
         >div {
-            background-color: tomato;
-            border-radius: 12px;
+            // background-color: tomato;
+            background-color: $white;
+            border-radius: 8px;
             padding: 10px;
             .dayname {
                 display: block;
