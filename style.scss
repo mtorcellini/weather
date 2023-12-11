@@ -3,10 +3,36 @@ $black1: #5a5a5a;
 $brightBlue: #8fe0ff;
 $medBlue: #75b4e3;
 $darkBlue: #31255a;
+$orange: #ff7511;
 $white: #fff;
 
 * {
     box-sizing: border-box;
+}
+
+.header-wrap {
+    background-color: $black1;
+    padding: 10px 20px;
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        h1 {
+            font-family: sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            background-color: $orange;
+            color: $white;
+            padding: 10px 18px;
+            width: fit-content;
+            border-radius: 10px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+    }
 }
 .current-weather {
     max-width: 1200px;
@@ -218,5 +244,22 @@ $white: #fff;
                 padding: 0 10px;
             }
         }
+    }
+}
+
+.fields {
+    input {
+        border: unset;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    button {
+        border: unset;
+        height: 50px;
+        font-size: 16px;
+        padding: 10px 30px;
+        border-radius: 8px;
     }
 }

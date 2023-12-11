@@ -157,5 +157,12 @@ function showForecast(data) {
     })
 
 }
-weatherByZip("05401");
 
+// weatherByZip("05401");
+
+document.querySelector('#zipsearchbutton').addEventListener('click', function() {
+    const zip = document.querySelector('#zipsearchfield').value;
+    if (zip.length >= 5) {
+        weatherByZip(zip);
+    }
+})
