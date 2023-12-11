@@ -18,11 +18,16 @@ function weatherByZip(zipcode) {
             lat = response.lat;
             lon = response.lon;
             name = response.name;
-            
-            
-            getCurrentWeather(lat, lon);
 
-            document.querySelector('.current-weather h2').innerHTML = `Current Weather in ${name}`;
+            if (lat && lon) {
+                document.querySelector('.current-weather h2').innerHTML = `Current Weather in ${name}`;
+                getCurrentWeather(lat, lon);
+            } else {
+                document.querySelector('.current-weather h2').innerHTML = `Bad Zip`;
+            }
+            
+            
+
         })
 }
 
@@ -82,7 +87,10 @@ function showCurrentWeather(data) {
 }
 
 function showForecast(data) {
+    document.querySelector(".days").textContent = "";
+
     const days = data.daily.slice(1,6);
+
     days.forEach(function(day, index) {
         // console.log(day);
 
