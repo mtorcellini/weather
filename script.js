@@ -51,7 +51,7 @@ function showCurrentWeather(data) {
     const humidity = data.current.humidity;
     const pressure = data.current.pressure;
     const sunrise = data.current.sunrise;
-    let sunset = data.current.sunset;
+    const sunset = data.current.sunset;
     const windspeed = data.current.wind_speed;
     const windDir = data.current.wind_deg;
     const description = data.current.weather[0].description;
