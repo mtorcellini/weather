@@ -1,8 +1,4 @@
-
-//get weather for an example location
-
-//location name
-//http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+const apiKey = "a8399274d821a66647513527414df9b0";
 
 function weatherByZip(zipcode) {
     let reqUrl = "http://api.openweathermap.org/geo/1.0/zip?zip=";
@@ -172,5 +168,11 @@ document.querySelector('#zipsearchbutton').addEventListener('click', function() 
     const zip = document.querySelector('#zipsearchfield').value;
     if (zip.length >= 5) {
         weatherByZip(zip);
+    }
+})
+
+document.querySelector('#zipsearchfield').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && e.target.value.length >= 5) {
+        weatherByZip(e.target.value);
     }
 })

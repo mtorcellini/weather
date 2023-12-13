@@ -6,6 +6,17 @@ $darkBlue: #31255a;
 $orange: #ff7511;
 $white: #fff;
 
+@mixin tablet {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+@mixin phone {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
 * {
     box-sizing: border-box;
 }
@@ -35,7 +46,7 @@ $white: #fff;
     }
 }
 .current-weather {
-    max-width: 1200px;
+    max-width: 1240px;
     padding: 0 20px;
     margin-left: auto;
     margin-right: auto;
