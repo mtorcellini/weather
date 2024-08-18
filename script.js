@@ -145,9 +145,11 @@ function showForecast(data) {
         const tempsEl = document.createElement("div");
         tempsEl.classList.add('temps');
         const minTEl = document.createElement('span');
-        minTEl.innerText = minTF;
-        const maxTEl = document.createElement("div");
-        maxTEl.innerText = maxTF;
+        // minTEl.innerText = minTF;
+        minTEl.innerHTML= `${minTF}&deg;`;
+        const maxTEl = document.createElement("span");
+        // maxTEl.innerText = maxTF;
+        maxTEl.innerHTML = `${maxTF}&deg;`;
         tempsEl.append(minTEl);
         tempsEl.append(maxTEl);
 

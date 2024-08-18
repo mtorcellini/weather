@@ -11,6 +11,11 @@ $white: #fff;
         @content;
     }
 }
+@mixin tabletvert {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
 @mixin phone {
     @media screen and (max-width: 768px) {
         @content;
@@ -61,6 +66,10 @@ $white: #fff;
         background-image: linear-gradient($brightBlue, $medBlue);
         padding: 30px;
         border-radius: 12px;
+        @include tabletvert {
+            flex-wrap: wrap;
+            padding: 20px;
+        }
         .info-1 {
             // background-color: $white;
             width: 200px;
@@ -68,6 +77,11 @@ $white: #fff;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            @include tabletvert {
+                $g: 20px; //gap between cards
+                $n: 2; //number of cards per row
+                flex-basis: calc(100%/$n + $g/$n - $g);
+            }
             .temperature {
                 display: flex;
                 gap: 10px;
@@ -131,6 +145,11 @@ $white: #fff;
             align-items: center;
             flex-direction: column;
             padding: 30px;
+            @include tabletvert {
+                $g: 20px; //gap between cards
+                $n: 2; //number of cards per row
+                flex-basis: calc(100%/$n + $g/$n - $g);
+            }
             .condition {
                 text-align: center;
                 margin: 0;
@@ -143,6 +162,9 @@ $white: #fff;
             align-items: stretch;
             width: 300px;
             gap: 20px;
+            @include tabletvert {
+                flex: 0 0 100%;
+            }
             .item {
                 $g: 20px; //gap between cards
                 $n: 2; //number of cards per row
@@ -155,6 +177,11 @@ $white: #fff;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                @include tabletvert {
+                    $g: 20px; //gap between cards
+                    $n: 4; //number of cards per row
+                    flex-basis: calc(100%/$n + $g/$n - $g);
+                }
                 .material-symbols-outlined {
                     font-size: 50px;
                 }
@@ -226,33 +253,80 @@ $white: #fff;
 }
 
 .weather-forecast {
+    padding: 0 20px;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: $medBlue;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 12px;
 
     .inner {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $medBlue;
+        padding: 20px;
+        border-radius: 12px;
     }
     .days {
         display: flex;
         justify-content: center;
         gap: 20px;
+        @include tabletvert {
+            flex-wrap: wrap;
+        }
         >div {
+            $g: 20px; //gap between cards
+            $n: 5; //number of cards per row
+            flex-basis: calc(100%/$n + $g/$n - $g);
             // background-color: tomato;
             background-color: $white;
             border-radius: 8px;
             padding: 10px;
+            @include tabletvert {
+                $g: 20px; //gap between cards
+                $n: 1; //number of cards per row
+                flex-basis: calc(100%/$n + $g/$n - $g);
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
             .dayname {
                 display: block;
                 text-align: center;
+                @include tabletvert {
+                    min-width: 100px;
+                }
+            }
+            .icon {
+                @include tabletvert {
+                    flex-grow: 1;
+                    text-align: center;
+                }
+                img {
+                    @include tabletvert {
+                        width: 50px;
+                    }
+                }
             }
             .temps {
                 display: flex;
                 justify-content: space-between;
                 padding: 0 10px;
+                @include tabletvert {
+                    min-width: 100px;
+                }
+                span {
+                    @include tabletvert {
+                        margin-left: 10px;
+                    }
+                    &:first-child {
+                        @include tabletvert {
+                            &:after {
+                                content: "/";
+                                position: relative;
+                                right: -5px;
+                            }
+                        }
+                    }
+                }   
+                    
             }
         }
     }
